@@ -1,11 +1,14 @@
 fn main() {
     let u = build_user(String::from("john"), 32);
-    println!("name: {}, age: {}, active: {}", u.name, u.age, u.active);
+    // println!("name: {}, age: {}, active: {}", u.name, u.age, u.active);
 
     let u = add_age(u);
-    println!("name: {}, age: {}, active: {}", u.name, u.age, u.active);
+    // println!("name: {}, age: {}, active: {}", u.name, u.age, u.active);
+    println!("{:?}", u);
+    println!("{:#?}", u);
 }
 
+#[derive(Debug)]
 struct User {
     name: String,
     age: u32,
