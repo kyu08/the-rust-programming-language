@@ -1,29 +1,16 @@
-use rand::Rng;
-use std::{cmp::Ordering, io};
-
 fn main() {
-    println!("guess the number!");
-    let secret_number = rand::thread_rng().gen_range(1..101);
+    let words = "white snake";
+    let first_word = get_first_word(words);
+    println!("{}", first_word);
+}
 
-    loop {
-        println!("input your guess!");
-        let mut guess = String::new();
-
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("failed to read line");
-
-        let guess: i32 = guess.trim().parse().expect("input number");
-
-        println!("you guessed: {}", guess);
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("❌less"),
-            Ordering::Equal => {
-                println!("🙆yes!");
-                break;
-            }
-            Ordering::Greater => println!("❌greater"),
+fn get_first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[..i];
         }
     }
+
+    s
 }
