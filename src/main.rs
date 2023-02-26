@@ -1,7 +1,13 @@
-fn main() {
-    let v = vec![1, 2, 3, 4, 5];
+use std::collections::HashMap;
 
-    for item in v {
-        println!("{}", item);
+fn main() {
+    let mut scores = HashMap::new();
+    let k = String::from("k");
+    let v = String::from("valueeeeeeeeeee");
+    scores.insert(&k, v);
+    let v = scores.get(&k);
+    match v {
+        Some(v) => println!("{}", v),
+        None => println!("none"),
     }
 }
