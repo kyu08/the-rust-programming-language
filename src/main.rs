@@ -1,4 +1,5 @@
 struct NewsFeed {}
+impl Runner for NewsFeed {}
 impl Summary for NewsFeed {
     fn summarize(&self) -> String {
         String::from("news!")
@@ -6,6 +7,7 @@ impl Summary for NewsFeed {
 }
 
 struct Tweet {}
+impl Runner for Tweet {}
 impl Summary for Tweet {
     fn summarize(&self) -> String {
         String::from("tweet!")
@@ -26,6 +28,9 @@ fn main() {
     say(t);
 }
 
-fn say(summary: impl Summary + Runner) {
+fn say<T>(summary: T)
+where
+    T: Summary + Runner,
+{
     println!("{}", summary.summarize());
 }
