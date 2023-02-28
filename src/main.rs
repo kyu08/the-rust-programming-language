@@ -1,36 +1,22 @@
-struct NewsFeed {}
-impl Runner for NewsFeed {}
-impl Summary for NewsFeed {
-    fn summarize(&self) -> String {
-        String::from("news!")
-    }
-}
-
-struct Tweet {}
-impl Runner for Tweet {}
-impl Summary for Tweet {
-    fn summarize(&self) -> String {
-        String::from("tweet!")
-    }
-}
-
-trait Summary {
-    fn summarize(&self) -> String;
-}
-
-trait Runner {}
-
 fn main() {
-    let n = NewsFeed {};
-    let t = Tweet {};
+    let vec1 = vec![1, 2, 3, 4, 5];
+    println!("largest num: {}", largest(&vec1));
 
-    say(n);
-    say(t);
+    let vec2 = vec!["a", "b"];
+    println!("largest num: {}", largest(&vec2));
 }
 
-fn say<T>(summary: T)
-where
-    T: Summary + Runner,
-{
-    println!("{}", summary.summarize());
+fn largest<T: PartialOrd>(vec: &Vec<T>) -> &T {
+    let mut largest = match vec.first() {
+        Some(v) => v,
+        None => panic!("vec should not empty!"),
+    };
+
+    for item in vec {
+        if *largest < *item {
+            largest = item;
+        }
+    }
+
+    largest
 }
