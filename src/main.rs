@@ -16,6 +16,8 @@ trait Summary {
     fn summarize(&self) -> String;
 }
 
+trait Runner {}
+
 fn main() {
     let n = NewsFeed {};
     let t = Tweet {};
@@ -24,6 +26,6 @@ fn main() {
     say(t);
 }
 
-fn say(summary: impl Summary) {
+fn say(summary: impl Summary + Runner) {
     println!("{}", summary.summarize());
 }
