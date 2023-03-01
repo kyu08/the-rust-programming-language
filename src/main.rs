@@ -1,22 +1,15 @@
 fn main() {
-    let vec1 = vec![1, 2, 3, 4, 5];
-    println!("largest num: {}", largest(&vec1));
+    let string1 = String::from("abcd");
+    let string2 = "xyz";
 
-    let vec2 = vec!["a", "b"];
-    println!("largest num: {}", largest(&vec2));
+    let result = longest(string1.as_str(), string2);
+    println!("{}", result);
 }
 
-fn largest<T: PartialOrd>(vec: &Vec<T>) -> &T {
-    let mut largest = match vec.first() {
-        Some(v) => v,
-        None => panic!("vec should not empty!"),
-    };
-
-    for item in vec {
-        if *largest < *item {
-            largest = item;
-        }
+fn longest<'a>(str1: &'a str, str2: &'a str) -> &'a str {
+    if str1.len() > str2.len() {
+        str1
+    } else {
+        str2
     }
-
-    largest
 }
