@@ -29,7 +29,7 @@ mod tests {
     }
 
     #[test]
-    fn smaller_cannot_hold_larger() {
+    fn smaller_cannot_hold_larger() -> Result<(), String> {
         let larger = Rectangle {
             width: 8,
             height: 7,
@@ -39,6 +39,10 @@ mod tests {
             height: 1,
         };
 
-        assert!(!smaller.can_hold(&larger));
+        if !smaller.can_hold(&larger) {
+            Ok(())
+        } else {
+            Err(String::from("err"))
+        }
     }
 }
