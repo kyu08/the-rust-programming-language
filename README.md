@@ -3,12 +3,10 @@ https://doc.rust-jp.rs/book-ja/title-page.html
 
 # 12章以降の進め方memo
 ## やる
-13. 関数型言語の機能：イテレータとクロージャ
 15. スマートポインタ
 17. Rustのオブジェクト指向プログラミング機能
 
 ## 読むだけ
-14. CargoとCrates.ioについてより詳しく
 16. 恐れるな！並行性
 18. パターンとマッチング
 19. 高度な機能
@@ -19,3 +17,5 @@ https://doc.rust-jp.rs/book-ja/title-page.html
 
 ## done
 12. 入出力プロジェクト：コマンドラインプログラムを構築する
+13. 関数型言語の機能：イテレータとクロージャ
+14. CargoとCrates.ioについてより詳しく
